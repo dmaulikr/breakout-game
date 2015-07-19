@@ -19,7 +19,6 @@
 		9607171A19363F9C009E3CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9607171819363F9C009E3CA8 /* Main.storyboard */; };
 		9607171D19363F9C009E3CA8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9607171C19363F9C009E3CA8 /* ViewController.m */; };
 		9607172019363F9C009E3CA8 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9607171F19363F9C009E3CA8 /* MyScene.m */; };
-		9607172219363F9C009E3CA8 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 9607172119363F9C009E3CA8 /* Spaceship.png */; };
 		9607172419363F9C009E3CA8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9607172319363F9C009E3CA8 /* Images.xcassets */; };
 		9607172B19363F9D009E3CA8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9607172A19363F9D009E3CA8 /* XCTest.framework */; };
 		9607172C19363F9D009E3CA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9607170419363F9C009E3CA8 /* Foundation.framework */; };
@@ -70,7 +69,6 @@
 		9607171C19363F9C009E3CA8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9607171E19363F9C009E3CA8 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		9607171F19363F9C009E3CA8 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		9607172119363F9C009E3CA8 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		9607172319363F9C009E3CA8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9607172919363F9D009E3CA8 /* Breakout-GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Breakout-GameTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9607172A19363F9D009E3CA8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -176,7 +174,6 @@
 				9607171F19363F9C009E3CA8 /* MyScene.m */,
 				9638F90B196088400017E3FF /* EndScene.h */,
 				9638F90C196088400017E3FF /* EndScene.m */,
-				9607172119363F9C009E3CA8 /* Spaceship.png */,
 				9607172319363F9C009E3CA8 /* Images.xcassets */,
 				9607170D19363F9C009E3CA8 /* Supporting Files */,
 			);
@@ -304,7 +301,6 @@
 				9607174B193640B1009E3CA8 /* paddle@2x.png in Resources */,
 				968F0F32194A5C3800D96155 /* brickhit.caf in Resources */,
 				9607172419363F9C009E3CA8 /* Images.xcassets in Resources */,
-				9607172219363F9C009E3CA8 /* Spaceship.png in Resources */,
 				96F129081960EA78000F4139 /* brick2.png in Resources */,
 				960669D71961D49400151166 /* balltiny.png in Resources */,
 				9607171A19363F9C009E3CA8 /* Main.storyboard in Resources */,
@@ -463,6 +459,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -480,6 +477,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
