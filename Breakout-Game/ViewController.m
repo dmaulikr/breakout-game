@@ -71,6 +71,7 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+//also made these additions for the adbanner.
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
@@ -93,6 +94,7 @@
     }
 }
 
+//check to see if adbanner failed.
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
     NSLog(@"Failed to retrieve ad");

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A2C04D41B5C0594007D7C17 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2C04D31B5C0594007D7C17 /* iAd.framework */; };
+		5A4140641CB3176900F43CF1 /* RedBricksmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A4140631CB3176900F43CF1 /* RedBricksmall.png */; };
 		960669D71961D49400151166 /* balltiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 960669D61961D49400151166 /* balltiny.png */; };
 		9607170519363F9C009E3CA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9607170419363F9C009E3CA8 /* Foundation.framework */; };
 		9607170719363F9C009E3CA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9607170619363F9C009E3CA8 /* CoreGraphics.framework */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		5A2C04D31B5C0594007D7C17 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		5A4140631CB3176900F43CF1 /* RedBricksmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedBricksmall.png; sourceTree = "<group>"; };
 		960669D61961D49400151166 /* balltiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balltiny.png; sourceTree = "<group>"; };
 		9607170119363F9C009E3CA8 /* Breakout-Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breakout-Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9607170419363F9C009E3CA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				96563E6C19620CE800A7FAA8 /* Bricksmall.png */,
+				5A4140631CB3176900F43CF1 /* RedBricksmall.png */,
 				96563E6819620B8B00A7FAA8 /* ballresized.png */,
 				960669D61961D49400151166 /* balltiny.png */,
 				96071740193640B1009E3CA8 /* ball.png */,
@@ -253,7 +256,7 @@
 		960716F919363F9B009E3CA8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Brelsford Software";
 				TargetAttributes = {
 					9607170019363F9C009E3CA8 = {
@@ -290,6 +293,7 @@
 			files = (
 				9607171119363F9C009E3CA8 /* InfoPlist.strings in Resources */,
 				96071747193640B1009E3CA8 /* ball@2x.png in Resources */,
+				5A4140641CB3176900F43CF1 /* RedBricksmall.png in Resources */,
 				968F0F31194A5C3800D96155 /* blip.caf in Resources */,
 				96071748193640B1009E3CA8 /* brick.png in Resources */,
 				96071746193640B1009E3CA8 /* ball.png in Resources */,
@@ -394,6 +398,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -408,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -440,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -456,6 +461,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Breakout-Game/Breakout-Game-Prefix.pch";
 				INFOPLIST_FILE = "Breakout-Game/Breakout-Game-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "BrelsfordSoftware.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -474,6 +480,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Breakout-Game/Breakout-Game-Prefix.pch";
 				INFOPLIST_FILE = "Breakout-Game/Breakout-Game-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "BrelsfordSoftware.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -498,6 +505,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Breakout-GameTests/Breakout-GameTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "BrelsfordSoftware.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -516,6 +524,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Breakout-Game/Breakout-Game-Prefix.pch";
 				INFOPLIST_FILE = "Breakout-GameTests/Breakout-GameTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "BrelsfordSoftware.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

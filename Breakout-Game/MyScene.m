@@ -22,7 +22,7 @@ static const uint32_t ballCategory =1;      //00000000000000000000000000000001
 static const uint32_t brickCategory = 2;    //00000000000000000000000000000010
 static const uint32_t paddleCategory = 4;   //00000000000000000000000000000100
 static const uint32_t edgeCategory = 8;     //00000000000000000000000000001000
-static const uint32_t bottomEdgeCategory = 16;      //00000000000000000000000000010000
+static const uint32_t bottomEdgeCategory = 32;      //00000000000000000000000000010000
 
 
 @implementation MyScene
@@ -30,7 +30,7 @@ static const uint32_t bottomEdgeCategory = 16;      //00000000000000000000000000
 
 -(void)didScore
 {
-   // myscore = (myscore +1);
+// myscore = (myscore +1);
 }
 
 
@@ -68,9 +68,13 @@ static const uint32_t bottomEdgeCategory = 16;      //00000000000000000000000000
     if (notTheBall.categoryBitMask == brickCategory) {
         SKAction *playSFX = [SKAction playSoundFileNamed:@"brickhit.caf" waitForCompletion:NO];
         [self runAction:playSFX];
+        
 
     [notTheBall.node removeFromParent];
+        [self addOneBrick:1 size:[self size] spriteName:@"RedBricksmall"];
+        [self addOneBrick:3 size:[self size] spriteName:@"RedBricksmall"];
       //[self didScore];
+        
         
     }
     if (notTheBall.categoryBitMask == paddleCategory){
@@ -82,6 +86,13 @@ static const uint32_t bottomEdgeCategory = 16;      //00000000000000000000000000
         [self.view presentScene:end transition:[SKTransition doorsCloseVerticalWithDuration:1.0]];
         
     }
+    if((contact.bodyA.categoryBitMask == ballCategory &&
+        contact.bodyB.categoryBitMask == brickCategory) ||
+       (contact.bodyA.categoryBitMask == brickCategory &&
+        contact.bodyB.categoryBitMask == ballCategory)) {
+           [self addBall:[self size]];
+       }
+
 }
 
 
@@ -120,60 +131,107 @@ static const uint32_t bottomEdgeCategory = 16;      //00000000000000000000000000
     [ball.physicsBody applyImpulse:myVector];
 }
 
-//add ball 2
 
-- (void)addBall2:(CGSize)size {
+
+//- (void)addBall2:(CGSize)size {
+////    // create a new sprite node from an image
+//    
+////this was a way to explode 10 balls from a brick
+//   // for (int i = 0; i < 10; i++) {
+//        // do some code
+////sleep for two seconds before next release
+//    //[NSThread sleepForTimeInterval:2.0f];
+//    
+//   SKSpriteNode *ball2 = [SKSpriteNode spriteNodeWithImageNamed:@"ballresized"];
+//   
+////    //create a CGPoint for position
+//   CGPoint myPoint =CGPointMake(size.width/1, size.height/2);
+//   ball2.position = myPoint;
+////    
+//   ball2.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball2.frame.size.width/2];
+//   ball2.physicsBody.friction=0;
+//   ball2.physicsBody.linearDamping=0;
+//   ball2.physicsBody.restitution=1;
+//   ball2.physicsBody.categoryBitMask = ballCategory;
+//   ball2.physicsBody.contactTestBitMask = brickCategory | paddleCategory | bottomEdgeCategory;
+//   // ball.physicsBody.collisionBitMask = edgeCategory | brickCategory;
+//   
+//   
+////    
+//  //add the sprite node to the scene
+//  [self addChild:ball2];
+////    
+//  //create the vector
+//  CGVector myVector = CGVectorMake(1,1);
+//   //apply to ball
+//  [ball2.physicsBody applyImpulse:myVector];
+//}
+//
+
+//add ball 3
+
+// - (void)addBall3:(CGSize)size {
 //    // create a new sprite node from an image
-  SKSpriteNode *ball2 = [SKSpriteNode spriteNodeWithImageNamed:@"ballresized"];
-   
-//    //create a CGPoint for position
-   CGPoint myPoint =CGPointMake(size.width/2, size.height/2);
-   ball2.position = myPoint;
 //    
-   ball2.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball2.frame.size.width/2];
-   ball2.physicsBody.friction=0;
-   ball2.physicsBody.linearDamping=0;
-   ball2.physicsBody.restitution=1;
-   ball2.physicsBody.categoryBitMask = ballCategory;
-   ball2.physicsBody.contactTestBitMask = brickCategory | paddleCategory | bottomEdgeCategory;
-   // ball.physicsBody.collisionBitMask = edgeCategory | brickCategory;
-   
-   
+//    //this was a way to explode 10 balls from a brick
+//    // for (int i = 0; i < 10; i++) {
+//    // do some code
+//    //sleep for two seconds before next release
+//  
 //    
-  //add the sprite node to the scene
-  [self addChild:ball2];
 //    
-  //create the vector
-  CGVector myVector = CGVectorMake(1,1);
-   //apply to ball
-  [ball2.physicsBody applyImpulse:myVector];
+//    SKSpriteNode *ball3 = [SKSpriteNode spriteNodeWithImageNamed:@"ballresized"];
+//    
+//    //    //create a CGPoint for position
+//    CGPoint myPoint =CGPointMake(size.width/2, size.height/2);
+//    ball3.position = myPoint;
+//    //
+//    ball3.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball3.frame.size.width/2];
+//    ball3.physicsBody.friction=1;
+//    ball3.physicsBody.linearDamping=0;
+//    ball3.physicsBody.restitution=1;
+//    ball3.physicsBody.categoryBitMask = ballCategory;
+//    ball3.physicsBody.contactTestBitMask = brickCategory | paddleCategory | bottomEdgeCategory;
+//    // ball.physicsBody.collisionBitMask = edgeCategory | brickCategory;
+//    
+//
+//    //
+//    //add the sprite node to the scene
+//    [self addChild:ball3];
+//    //
+//    //create the vector
+//    CGVector myVector = CGVectorMake(1,1);
+//    //apply to ball
+//    [ball3.physicsBody applyImpulse:myVector];
+//}
+
+- (void)addOneBrick:(int)i size:(CGSize)size spriteName:(NSString*)sprite{
+    SKSpriteNode *brick =[SKSpriteNode spriteNodeWithImageNamed:sprite];
+    
+    //add a static physics body
+    brick.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:brick.frame.size];
+    //brick.physicsBody.dynamic = NO;
+    brick.physicsBody.categoryBitMask =brickCategory;
+    brick.physicsBody.friction=0;
+    brick.physicsBody.linearDamping=0;
+    brick.physicsBody.restitution=1;
+    brick.physicsBody.categoryBitMask =brickCategory;
+    
+    int xPos =size.width/9 * (i+1);
+    int yPos = size.height - 50;
+    brick.position = CGPointMake(xPos, yPos);
+    
+    [self addChild:brick];
+    
+    CGVector myVector = CGVectorMake(0,-7);
+    //apply to bricks
+    [brick.physicsBody applyImpulse:myVector];
 }
-
-
 
 //put in some bricks
 -(void) addBricks:(CGSize) size {
     for (int i= 0; i< 10; i++) {
-        SKSpriteNode *brick =[SKSpriteNode spriteNodeWithImageNamed:@"Bricksmall"];
-        
-        //add a static physics body
-        brick.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:brick.frame.size];
-        //brick.physicsBody.dynamic = NO;
-        brick.physicsBody.categoryBitMask =brickCategory;
-        brick.physicsBody.friction=0;
-        brick.physicsBody.linearDamping=0;
-        brick.physicsBody.restitution=1;
-        brick.physicsBody.categoryBitMask =brickCategory;
-        
-        int xPos =size.width/9 * (i+1);
-        int yPos = size.height - 50;
-        brick.position = CGPointMake(xPos, yPos);
-        
-        [self addChild:brick];
-        
-        CGVector myVector = CGVectorMake(0,-7);
-        //apply to bricks
-        [brick.physicsBody applyImpulse:myVector];
+        [self addOneBrick:i size:size spriteName:@"Bricksmall"];
     }
 }
 
@@ -277,9 +335,10 @@ static const uint32_t bottomEdgeCategory = 16;      //00000000000000000000000000
         [self addPlayer:size];
         [self addBricks:size];
         [self addBottomEdge:size];
-        [self addBall2:size];
+//        [self addBall2:size];
         [self addBrick2:size];
         [self addBrick3:size];
+//        [self addBall3:size];
         
 }
     return self;
