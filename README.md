@@ -1,2 +1,2 @@
 # breakout-game
-Simple breakout game with ad convention
+Simple breakout game
